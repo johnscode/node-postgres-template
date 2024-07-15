@@ -16,7 +16,6 @@ module.exports.setupTestUsers = initUsersFunc;
 
 const deleteUsersFunc = async function() {
   initialDb.userDict={}
-  await User.
 }
 module.exports.clearTestUsers = deleteUsersFunc;
 

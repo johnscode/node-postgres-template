@@ -1,4 +1,4 @@
-
+# node-postgres-template
 ## Setup
 
 ## node
@@ -23,26 +23,7 @@ set the
 
 `node ./db/dbreset.js`
 
-## SSL Certs
-### ssl cert generation
 
-openssl req -new -newkey rsa:2048 -nodes -keyout wildcard-johnfowler.key -out wildcard-johnfowler.csr
-
-
-### ssl cert installation
-
-Namecheap sends zip containing cert and associated chain certs. These need to be concatentated into a single file (file order is important)
-
-cat __johnfowler_dev.crt __johnfowler_dev.ca-bundle >> __johnfowler_dev_cert_chain.crt
-
-Use the cert chain file and .key created when the .csr was generated and place them in the ssl certs folder for the web server (/etc/ssl for our usual nginx configuration)
-
-Place reference in the nginx config for those servers using ssl.
-
-
-###  check ssl expiration
-
-openssl x509 -enddate -noout -in certificate.crt
 
 ### express generator output
 
