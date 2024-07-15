@@ -1,0 +1,29 @@
+
+
+let config = {
+
+  logLocation: './logs',
+
+  redis: {
+    host: "localhost",
+    port: 6379
+  },
+
+  postgres: {
+    host: "localhost",
+    port: 6379,
+    user: "postgres",
+    pass: "postgres",
+    db: "torbot"
+  },
+
+  webPort: 4000,
+  socketPort: 4001,
+
+}
+
+
+
+
+
+module.exports = config;

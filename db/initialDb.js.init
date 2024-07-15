@@ -1,0 +1,39 @@
+//
+// could be a seed or initial migration
+//
+const logger = require('../logger');
+
+const User = require('../models/user');
+const Room = require('../models/room');
+
+const initialDb = {};
+
+initialDb.userDict = {};
+initialDb.roomDict = {};
+
+initialDb.initialUsers = () => {
+  return [
+    new User({
+      first_name: 'admin',
+      last_name: 'admin',
+      username: 'admin',
+      email: 'admin@test.com',
+      apikey: '',
+      encryptedPass: 'somepass'   // see  preSave method in ../models/user.js, it encrypts pass before db insert
+    }),
+  ];
+}
+
+
+initialDb.initialRooms = () => {
+  gu = initialDb.userDict['admin'];
+  return [
+    new Room({
+      roomName: 'open room',
+      creatorId: gu._id.toString(),
+      open: true
+    }),
+  ];
+}
+
+module.exports=initialDb;
